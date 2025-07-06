@@ -1,0 +1,114 @@
+/* ////////////////////   3D Cards animation ////////////////////  */
+
+.card3D {
+    position: relative;
+    aspect-ratio: 0.7142857143;
+    color: #ffffff;
+    /* perspective: 100rem; */
+    aspect-ratio: 1 / 1;
+}
+
+.card3D .shadow {
+    position: absolute;
+    inset: 5%;
+    /* background: var(--url); */
+    background-size: cover;
+    background-position: center;
+    opacity: 0.3;
+    filter: blur(2rem) saturate(0.9);
+    box-shadow: 0 -1.5rem 2rem -0.5rem rgba(0, 0, 0, 0.7);
+    transform: rotateX(var(--rotateX)) rotateY(var(--rotateY)) translate3d(0, 1rem, -15rem);
+}
+
+.card3D .image {
+    position: absolute;
+    inset: 10%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent 40%), var(--url);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    mask-image: var(--url);
+    mask-size: contain;
+    mask-position: center;
+}
+
+.card3D .image.background {
+    transform: rotateX(var(--rotateX)) rotateY(var(--rotateY)) translate3d(0, 0, 0rem);
+}
+
+.card3D .image.cutout {
+    transform: rotateX(var(--rotateX)) rotateY(var(--rotateY)) translate3d(0, 0, 5rem) scale(0.92);
+    z-index: 3;
+}
+
+.card3D .content {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    inset: 0;
+    padding: 3.5rem;
+    transform: rotateX(var(--rotateX)) rotateY(var(--rotateY)) translate3d(0, 0, 6rem);
+    z-index: 4;
+}
+/* 
+.card3D::after,
+.card3D::before {
+    content: "";
+    position: absolute;
+    inset: -0.5rem;
+    border: #f8f9fa 0.3rem solid;
+    transform: rotateX(var(--rotateX)) rotateY(var(--rotateY)) translate3d(0, 0, 2rem);
+} */
+
+.card3D::before {
+    z-index: 4;
+}
+
+.card3D.border_left_behind::before {
+    border-left: transparent;
+}
+
+.card3D.border-right-behind::before {
+    border-right: transparent;
+}
+
+.card3D.border-bottom-behind::before {
+    border-bottom: transparent;
+}
+
+
+
+
+/* ////////////////////   3D Cards  ////////////////////  */ 
+.card3D-static {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    color: #ffffff;
+}
+
+.card3D-static .shadow {
+    position: absolute;
+    inset: 10%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.3;
+    filter: blur(1rem) saturate(0.9);
+    box-shadow: 0 -1.5rem 2rem -0.5rem rgba(0, 0, 0, 0.7);
+    /* transform: rotateX(0deg) rotateY(0deg) translate3d(0, 1rem, -15rem); */
+}
+
+.card3D-static .image.cutout {
+    position: absolute;
+    inset: 10%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent 40%), var(--url);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    mask-image: var(--url);
+    mask-size: contain;
+    mask-position: center;
+
+    transform: translate3d(0, 0, 5rem) scale(0.92) rotateX(0deg) rotateY(0deg);
+    z-index: 3;
+}
